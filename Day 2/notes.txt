@@ -1,0 +1,53 @@
+-- Drop Table
+-- Explanation: The DROP TABLE statement is used to remove a table from the database.
+-- Example:
+DROP TABLE IF EXISTS students;
+
+-- Create Table
+-- Explanation: The CREATE TABLE statement is used to define a new table's structure in the database.
+-- Example:
+CREATE TABLE students (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT
+);
+
+-- Insert Data into Table
+-- Explanation: The INSERT INTO statement is used to add new records into a table.
+-- Example:
+INSERT INTO students (name, age) VALUES ('Alice', 20);
+
+-- Select Statement
+-- Explanation: The SELECT statement is used to retrieve data from one or more tables.
+-- Example:
+SELECT * FROM students;
+
+-- Update Statement
+-- Explanation: The UPDATE statement is used to modify existing records in a table.
+-- Example:
+UPDATE students SET age = 21 WHERE name = 'Alice';
+
+-- Delete Statement
+-- Explanation: The DELETE FROM statement is used to remove existing records from a table.
+-- Example:
+DELETE FROM students WHERE age < 18;
+
+-- Alter Table
+-- Explanation: The ALTER TABLE statement is used to modify an existing table's structure.
+-- Example:
+ALTER TABLE students ADD email VARCHAR(100);
+
+-- Order By
+-- Explanation: The ORDER BY clause is used to sort the result set of a query.
+-- Example:
+SELECT * FROM students ORDER BY age DESC;
+
+-- Limiting Rows
+-- Explanation: The TOP clause (or LIMIT in some SQL dialects) is used to limit the number of rows returned by a query.
+-- Example:
+SELECT TOP 3 * FROM students;
+
+-- Limiting Columns
+-- Explanation: Specifying column names in the SELECT statement restricts the output to only those columns.
+-- Example:
+SELECT name, age FROM students;
