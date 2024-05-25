@@ -78,7 +78,7 @@ SELECT * FROM store WHERE Customer_Name NOT LIKE 'A%' AND Customer_Name NOT LIKE
 -- 5. Get all orders where profit is negative
 SELECT * FROM store WHERE profit < 0;
 
--- 6. Get all orders where Quantity is less than 3 or profit is 0
+--  6. Get all orders where Quantity is less than 3 or profit is 0
 SELECT * FROM store WHERE Quantity < 3 OR profit = 0;
 
 -- 7. Report for South region orders where some discount is provided
