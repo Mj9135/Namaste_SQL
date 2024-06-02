@@ -1,0 +1,115 @@
+Sure, here is the content you requested in a single text format:
+
+---
+
+**Self Join**
+
+**Definition:**
+A self join is a regular join, but the table is joined with itself. This is useful when comparing rows within the same table.
+
+**Usage:**
+- When you need to relate rows of a table to other rows of the same table.
+- Often used to find hierarchical relationships, such as employees and their managers.
+
+**Example:**
+```sql
+SELECT e1.emp_name, e2.emp_name AS manager_name
+FROM employee e1
+INNER JOIN employee e2 ON e1.manager_id = e2.emp_id;
+```
+**Explanation:** The query joins the `employee` table with itself to find each employee's manager by matching `manager_id` in `e1` with `emp_id` in `e2`.
+
+---
+
+**STRING_AGG**
+
+**Definition:**
+STRING_AGG is an aggregate function that concatenates values from multiple rows into a single string, with a specified separator.
+
+**Usage:**
+- When you need to create a comma-separated list (or any other separator) from column values.
+- Useful for summarizing information in a readable format.
+
+**Example:**
+```sql
+SELECT dept_id, STRING_AGG(emp_name, ',') WITHIN GROUP (ORDER BY emp_name DESC) AS list_of_emp
+FROM employee
+GROUP BY dept_id;
+```
+**Explanation:** This query concatenates the `emp_name` values for each `dept_id` into a single string, separated by commas, and ordered by `emp_name` in descending order.
+
+---
+
+**DATEDIFF**
+
+**Definition:**
+DATEDIFF is a function that calculates the difference between two dates, returning the result in the specified date part (e.g., days, months, years).
+
+**Usage:**
+- When you need to find the time span between two dates.
+- Commonly used in reports and date comparisons.
+
+**Example:**
+```sql
+SELECT order_date, ship_date, DATEDIFF(day, order_date, ship_date) AS time_taken
+FROM super;
+```
+**Explanation:** This query calculates the number of days between `order_date` and `ship_date`.
+
+---
+
+**DATEPART**
+
+**Definition:**
+DATEPART is a function that extracts a specific part of a date, such as the year, month, day, week, etc.
+
+**Usage:**
+- When you need to isolate specific parts of a date for filtering, grouping, or display purposes.
+
+**Example:**
+```sql
+SELECT order_date, DATEPART(yy, order_date) AS order_year, DATEPART(m, order_date) AS order_month
+FROM super;
+```
+**Explanation:** This query extracts the year and month from `order_date`.
+
+---
+
+**DATENAME**
+
+**Definition:**
+DATENAME is a function that returns the name of the specified date part (e.g., day of the week, month name) as a string.
+
+**Usage:**
+- When you need a human-readable name for a specific part of a date.
+
+**Example:**
+```sql
+SELECT order_date, DATENAME(yy, order_date) AS order_year, DATENAME(m, order_date) AS order_month
+FROM super;
+```
+**Explanation:** This query returns the year and the name of the month from `order_date`.
+
+---
+
+**CASE ... END**
+
+**Definition:**
+The CASE statement is used to create conditional logic within SQL queries. It allows you to return different values based on specified conditions.
+
+**Usage:**
+- When you need to perform if-then-else logic in SQL.
+- Useful for categorizing data and creating computed columns.
+
+**Example:**
+sql
+SELECT order_id, profit,
+CASE
+    WHEN profit < 100 THEN 'Low Profit'
+    WHEN profit < 250 THEN 'Medium Profit'
+    WHEN profit < 400 THEN 'High Profit'
+    ELSE 'Very High Profit'
+END AS profit_category
+FROM super;
+
+Explanation: This query categorizes `profit` into different categories based on its value.
