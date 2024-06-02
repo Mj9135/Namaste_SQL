@@ -157,17 +157,16 @@ inner join dept d on e.dept_id=d.dep_id
 group by d.dep_name;
 
 -- 4. Query to print department names where none of the employees have the same salary
-select d.dep_name 
+select e.dept_id,d.dep_name
 from employee e
-inner join dept d on e.dept_id=d.dep_id
-group by dep_name, dep_id
+left join dept d on e.dept_id=d.dep_id
+group by dept_id,d.dep_name
 having count(e.salary) = count(distinct e.salary);
 
 -- 5. Query to print sub-categories where we have all 3 kinds of returns (Others, Bad Quality, Wrong Items)
 SELECT s.sub_category 
 FROM super s
 INNER JOIN returns r ON s.order_id = r.order_id
-WHERE r.return_reason IN ('Others', 'Bad Quality', 'Wrong Items')
 GROUP BY s.sub_category
 HAVING COUNT(DISTINCT r.return_reason) = 3;
 
