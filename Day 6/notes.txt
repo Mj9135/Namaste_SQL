@@ -7,7 +7,7 @@ Sure, here is the content you requested in a single text format:
 **Definition:**
 A self join is a regular join, but the table is joined with itself. This is useful when comparing rows within the same table.
 
-**Usage:**
+**Usage:
 - When you need to relate rows of a table to other rows of the same table.
 - Often used to find hierarchical relationships, such as employees and their managers.
 
